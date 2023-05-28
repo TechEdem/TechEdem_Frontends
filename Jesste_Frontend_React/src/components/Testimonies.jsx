@@ -96,7 +96,7 @@ h1{
     font-size: 3rem;
     text-align: center;
     font-weight: 700;
-    padding-left: 35%;
+    padding-left: 32.5%;
     font-family: 'Rubik', sans-serif;
 }
 .background{
