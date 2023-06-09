@@ -4,6 +4,9 @@ import Facebook from '../assets/facebook.png'
 import Twitter from '../assets/twitter.png'
 import Instagram from '../assets/instagram.png'
 import Linkedin from '../assets/linkedin.png'
+import Location from '../assets/Subtract.png'
+import Phone from '../assets/phone.png'
+import Mail from '../assets/mail.png'
 
 const socialMedia = [
   {
@@ -22,7 +25,21 @@ const socialMedia = [
     id: 4,
     image: Twitter,
   }
-]
+];
+ const footerDetails = [
+  {
+    picture: Location,
+    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  },
+  {
+    picture: Phone,
+    details: '(+233)54-361-9041',
+  },
+  {
+    picture: Mail,
+    details: 'jesseocloo1986@gmail.com'
+  }
+ ]
 
 function Footer() {
   return (
@@ -49,7 +66,7 @@ function Footer() {
             </div>
 
             <div className='footer_details'>
-            <label for='Email'>Email</label>
+            <label for='Email'>Message</label>
             <br />
             <textarea name="description" placeholder='Type your Message' />
             </div>
@@ -64,6 +81,7 @@ function Footer() {
         </div>
 
         <div className='second_footer'>
+
           <div className='social_media_handles'>
             {
               socialMedia.map((each, index)=>(
@@ -73,8 +91,28 @@ function Footer() {
               ))
             }
           </div>
+
+          <div className='footer_info'>
+            {
+              footerDetails.map((each, index) => (
+                <div className='info' key={index}>
+                  <img src={each.picture} alt='handles'/>
+                  <p>{each.details}</p>
+                </div>
+              ))
+            }
+          </div>
+          
         </div>
 
+        
+
+      </div>
+
+      <div className='copyright'>
+        <div className='main_copyright'>
+            <h3>&copy; Copyright @ 2023, Edem Aheto </h3>
+        </div>
       </div>
     </Container>
   )
@@ -98,13 +136,11 @@ padding-top: 4%;
   color: #515050;
 }
 form{
-  width: 100%;
   padding: 1% 7%;
 }
 .form{
   display: flex;
   justify-content: space-between;
-  width: 85%;
   padding-buttom: 5%;
 }
 .footer_details label{
@@ -124,7 +160,7 @@ form{
   font-family: "Rubik";
 }
 .footer_details textarea{
-  width: 610px;
+  width: 625px;
   height: 100px;
   padding: 3%;
   border: none;
@@ -150,8 +186,52 @@ form{
   display: flex;
   justify-content: space-around;
   padding: 2% 0%;
-  background: black;
+  background: rgba(0, 0, 0, 0.75);
   width: 100%;
+}
+.footer_info{
+  padding: 10% 15%;
+}
+.info{
+  display: flex;
+  padding: 2%;
+}
+.info p{
+  padding: 1% 3%;
+}
+.copyright{
+  background: grey;
+  padding: 2% 35%;
+}
+.main_copyright{
+  border-top: 5px solid white;
+  text-align: center;
+  padding: 1% 0%;
+  color: white;
+  font-family: "Rubik";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+}
+@media (max-width: 760px){
+  .main_footer{
+    display: block;
+  }
+  .first_footer{
+    width: 100%;
+  }
+  .form{
+    display: block;
+  }
+  .footer_details textarea{
+    width: 310px;
+  }
+  .footer_details input{
+    width: 310px; 
+  }
+  .second_footer{
+    width: 100%;
+    height: 60vh;
+  }
+  
+  
 }
 `
 export default Footer

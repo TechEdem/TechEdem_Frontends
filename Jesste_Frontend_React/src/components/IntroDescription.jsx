@@ -66,6 +66,27 @@ function Introduction() {
         </div>
       </div>
       </div>
+
+      <div className='title1'>
+       <Fade duration={1000} distance="40px">
+          <h1>
+            <span className='span'>JESSTE ENGINEERING</span>,<br /> 
+  
+          THE MOST <br />
+           <Typed strings={["RELIABLE","EFFECTIVE",]} typeSpeed = {80} backSpeed={80} loop  className='typed'/>
+         <br />COMPANY IN GHANA
+         </h1>
+      </Fade>
+         <p>
+         In id enim odio. Nunc aliquet diam tortor, at venenatis urna sagittis non. Suspendisse sodales nulla sit amet sem 
+         condimentum, ac euismod nibh elementum. Praesent eu urna at sem sodales venenatis. Mauris efficitur dapibus enim in posuere
+         </p>
+
+         <div className="button-container">
+            <button> GET STARTED</button>
+         </div>
+
+      </div>
     </Container>
   )
 }
@@ -89,6 +110,7 @@ const Container = styled.div`
 }
 .span{
   color: #FFD39F;
+  font-weight: bold;
 }
 .typed{
   font-size: 49px;
@@ -169,6 +191,65 @@ button:hover{
 .special_services img{
   width: 60px;
   height: 64px;
+}
+.title1{
+  display: none;
+}
+@media (max-width: 760px){
+  .beginner{
+    display: none;
+  }
+  .title1{
+    display: block;
+    padding: 4%;
+  }
+  .title1 h1{
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 49px;
+    line-height: 76px;
+    color: rgba(230, 227, 227, 0.989)
+  }
+  .typed{
+    font-size: 49px;
+    background: linear-gradient(97.24deg, #FFE6C8 44.37%, rgba(243, 193, 95, 0) 113.02%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  .title1 p{
+    color: white;
+    padding-top: 2%;
+    padding-right: 0%;
+    text-align: justify;
+    font-family: "Calibri";
+    font-size: 17px;
+  }
+  .button-container{
+    padding-top: 5%
+  }
+  button{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 251, 251, 0.45);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 36px;
+  }
+  button:hover{
+    background: transparent;
+    cursor: pointer;
+    color: rgba(230, 227, 227, 0.989);
+    border: 3px solid rgba(230, 227, 227, 0.989);
+    transition: 1s;
+    transform: scale(1.1);
+  }
 }
 `
 export default Introduction

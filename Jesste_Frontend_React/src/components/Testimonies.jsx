@@ -130,5 +130,26 @@ h1{
 .main_slider p{
   padding: 7%;
 }
+@media (max-width: 760px){
+  .title{
+    padding: 20% 1% 3% 1%;
+  }
+  h1{
+    font-size: 31px;
+  }
+  .typed{
+    font-size: 31px;
+    padding-left: 13%;
+  }
+  .slide{
+    padding: 2% 3%; 
+  }
+  .image_container{
+    padding: 8% 27%;
+  }
+  .main_slider{
+    width: 93%;
+  }
+}
 `
 export default Testimonies

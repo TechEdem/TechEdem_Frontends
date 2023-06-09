@@ -117,22 +117,22 @@ function Questions() {
 
 const Container = styled.div`
 .title{
-    padding: 8% 1% 3% 1%;
+  padding: 8% 1% 3% 1%;
 }
 .title h1{
-      font-size: 2rem;
-      text-align: center;
-      padding-buttom: 6rem;
-      color: #E3CD5A;
-      font-weight: 500;
-      font-family: 'Rubik', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  padding-buttom: 6rem;
+  color: #E3CD5A;
+  font-weight: 500;
+  font-family: 'Rubik', sans-serif;
 }
 .typed{
-      font-size: 3rem;
-      text-align: center;
-      font-weight: 700;
-      padding-left: 27%;
-      font-family: 'Rubik', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 700;
+  padding-left: 27%;
+  font-family: 'Rubik', sans-serif;
 }
 .question_container{
   padding: 0% 35%;
@@ -168,6 +168,24 @@ const Container = styled.div`
 .answers p{
   padding: 3% 2%;
   text alignment: center;
+}
+@media (max-width: 760px){
+  .title h1{
+    font-size: 31px;
+  }
+  .typed{
+    font-size: 26px;
+    text-align: center;
+    font-weight: 700;
+    padding-left: 5%;
+    font-family: 'Rubik', sans-serif;
+  }
+  .question_container{
+    padding: 0% 5%;
+  }
+  .question h1{
+    font-size: 15px;
+  }
 }
 `
 export default Questions

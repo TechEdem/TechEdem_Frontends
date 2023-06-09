@@ -79,6 +79,7 @@ function Projects() {
       <div className='main_project'>
 
         <Fade top duration={1000} distance="40px">
+
           <div className='main_first' onMouseLeave={handleLeave}>
           <img src={First} alt='' className='main' onMouseEnter={handleHover}/>
           {
@@ -93,8 +94,8 @@ function Projects() {
         </Fade>
       
         <Fade buttom duration={1000} distance="40px">
-      <div className='projects'>
 
+      <div className='projects'>
         <div className='secondary_first' onMouseLeave={handleLeave2}>
         <img src={Second} alt='' className='secondary_main' onMouseEnter={handleHover2}/>
         {
@@ -243,6 +244,44 @@ const Container = styled.div`
     width: 230px;
     height: 160px;
     background-color: rgba(255, 252, 252, 0.590);
+  }
+  @media (max-width: 760px){
+    h1{
+      font-size: 30px;
+    }
+    .typed{
+      font-size: 30px;
+      padding-left: 12%;
+    }
+    .main_project{
+      display: block;
+      padding: 3% 0%;
+      justify-content: space-between;
+    }
+    .main_first{
+      width: 230px;
+      height: 160px;  
+      display: flex;
+      padding: 7% 20%;
+    }
+    .main{
+      width: 230px;
+      height: 160px;
+    }
+    .main_hover{
+      width: 230px;
+      height: 160px;
+    }
+    .projects{
+      display: flex;
+      flex-wrap: wrap;
+      width: 55%;
+      padding: 0% 22%;
+      justify-content: space-around;
+    }
+    .secondary_first{
+      padding: 7% 0%;
+    }
   }
 `
 export default Projects

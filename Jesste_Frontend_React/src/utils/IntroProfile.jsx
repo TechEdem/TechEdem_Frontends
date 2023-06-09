@@ -79,9 +79,10 @@ const Container = styled.div`
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
   }
-  .experience_details video{
+  video {
     width: 100%;
     height: 100vh;
+    object-fit: cover;
   }
   .experience_details_text{
     display: flex;

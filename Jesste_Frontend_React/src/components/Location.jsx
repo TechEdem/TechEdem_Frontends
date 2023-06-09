@@ -74,11 +74,6 @@ function Location() {
 const Container = styled.div`
 padding-top: 10%;
 
-.background{
-  display: flex;
-  height: 50vh;
-  width: 100%;
-}
 .location_description{
   position: absolute;
   width: 30%;
@@ -103,6 +98,11 @@ padding-top: 10%;
   font-family: Kanit;
   padding: 5% 20%;
   font-size: 30px;
+}
+.background{
+  display: flex;
+  height: 50vh;
+  width: 100%;
 }
 .background img{
     height: 70vh;
@@ -134,6 +134,21 @@ padding-top: 10%;
 .secondary_slider{
   height: 70vh;
   width: 100%;
+}
+@media (max-width: 760px){
+  .location_description{
+    position: absolute;
+    width: 90%;
+    padding-left: 5%;
+  }
+  .background{
+    display: flex;
+    height: 68vh;
+    width: 100%;
+  }
+  .main_slide{
+    display: none;
+  }
 }
 `
 export default Location

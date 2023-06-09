@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RegisteredPage from './pages/RegisteredPage';
 import Login from './pages/Login';
 import PrivateComponent from "./components/PrivateComponent";
+import AboutUs from './screens/AboutUs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
           <Route path = '/admin' element = {<AdminLogin />} />
           <Route path = '/login' element = {<Login />} />
           <Route path='/registered' element = {<RegisteredPage />} />
+          <Route path='/about' element = {<AboutUs />} />
       </Routes>
   </Router>
 );

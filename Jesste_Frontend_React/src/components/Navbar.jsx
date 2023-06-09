@@ -6,11 +6,44 @@ import {motion} from 'framer-motion';
 import Cancel from '../assets/cancel.png';
 import Login from '../pages/Login';
 import Fade from 'react-reveal'
+import Menu from '../assets/Menu.png'
+import Home from '../assets/Home.png'
+import About from '../assets/About.png'
+import Category from '../assets/Category.png'
+import Contact from '../assets/Contact.png'
+import Join from '../assets/Join.png'
+
+const NavIcons = [
+  {
+    link : '/',
+    image : Home,
+    title : 'Home',
+  },
+  {
+    link : '/about',
+    image : About,
+    title : 'About',
+  },
+  {
+    link : '/category',
+    image : Category,
+    title : 'Category',
+  },
+  {
+    link : '/contact',
+    image : Contact,
+    title : 'Contact',
+  },
+  {
+    link : '/login',
+    image : Join,
+    title : 'Join',
+  }
+]
 
 function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
-
   const handleHover = () => {
     setIsOpen(true);
   };
@@ -26,6 +59,15 @@ function Navbar() {
   };
   const handleLeaveClick = () => {
     setClick(false);
+  };
+
+  const[join, setJoin] = useState(false);
+
+  const handleJoin = () => {
+    return setJoin(true);
+  };
+  const handleLeaveJoin = () => {
+    return setJoin(false);
   };
   
 
@@ -43,8 +85,8 @@ function Navbar() {
 
         <nav>
             <ul>
-                <li><Link to= '' className='navigation'>Home</Link></li>
-                <li><Link to= '' className='navigation'>About</Link></li>
+                <li><Link to= '/' className='navigation'>Home</Link></li>
+                <li><Link to= '/about' className='navigation'>About</Link></li>
                 <li onMouseLeave={handleLeave}>
                     <li onMouseEnter={handleHover}><Link to= '' className='navigation'>Categories</Link></li>
                     {isOpen && (
@@ -70,7 +112,9 @@ function Navbar() {
             {click && (
                 <div className='join_main'>
                   <div className='join_menu'>
-                    <img src={Cancel} alt='' onClick={handleLeaveClick}/>
+                    <div className='menu_image'>
+                      <img src={Cancel} alt='cancel' onClick={handleLeaveClick}className='main_cancel'/>
+                    </div>
                     <Login />
                   </div>
                   
@@ -80,6 +124,30 @@ function Navbar() {
           </div>
 
         </div>
+
+        
+        <img src={Menu} alt = '' className='hambuger' onClick={handleJoin}/>
+          {
+            join && (
+              <div className='load'>
+              
+                  <img src={Cancel} alt='' onClick={handleLeaveJoin} className='main_cancel'/>
+                <div className='load_link'>
+                {
+                  NavIcons.map((icon, index)=>(
+                    <Fade right duration={1000} distance="40px">
+                      <div className = 'NavMain' key={index}>
+                        <Link to={icon.link}><img src={icon.image} alt='images' /></Link>
+                        <p>{icon.title}</p>
+                      </div>
+                    </Fade>
+                  ))
+                }
+                </div>
+              </div>
+            )
+          }
+      
 
     </Container>
   )
@@ -96,8 +164,8 @@ const Container = styled.div`
   }
   
   img{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
   nav{
     padding-right: 28%;
@@ -189,16 +257,87 @@ const Container = styled.div`
     z-index: 3;
     background: rgba(82, 82, 82, 0.95);
   }
-  
-  .join_menu img{
+  .menu_image{
     width: 50px;
     height: 50px;
     float: right;
-    padding: 10px;
+    margin: 10px;
     cursor: pointer;
-    z-index: 2;
   }
-  
+  .menu_image img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .hambuger{
+    display: none;
+    width: 50px;
+    height: 50px;
+  }
+  @media (max-width: 760px){
+    displaY: flex;
+
+  .logo{
+    padding: 2%;
+    width: 100%;
+  }
+  nav{
+    display: none;
+  }
+  .authentication{
+    display: none;
+  }
+  .hambuger{
+    display: block;
+    padding: 6%;
+    width: 30px;
+    height: 30px;
+  }
+  .load{
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background: rgba(82, 82, 82, 0.98);
+  }
+  .main_cancel{
+    width: 40px;
+    height: 40px;
+    float: right;
+    padding: 6%;
+  }
+  .main_loader{
+    width: 100%;
+    height: 100%;
+    background: red;
+  }
+  .load_link{
+    font-size: 25px;
+    padding: 30% 5%;
+    text decoration: none;
+  }
+  .load_link a{
+    color: white;
+    text decoration: none;
+  }
+  .NavMain{
+    display: flex;
+    margin-top: 50px;
+  }
+  .NavMain img{
+    width: 50px;
+    height: 50px;
+  }
+  .NavMain img:hover{
+    transformation: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+  .NavMain p{
+    padding: 4% 6%;
+    color: white;
+  }
+}
 
 `
 

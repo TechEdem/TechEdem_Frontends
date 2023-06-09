@@ -4,12 +4,16 @@ import {motion} from 'framer-motion';
 import Loader from '../assets/Ellipse.svg';
 import { BarLoader } from 'react-spinners';
 import Introduction from '../utils/Introduction'
-import IntroProfile from '../utils/IntroProfile'
+import IntroProfile from '../components/IntroProfile'
 import Projects from '../components/Projects'
 import About from '../components/About'
 import IntroductionEmail from '../components/IntroductionEmail'
 import Fade from 'react-reveal';
 import { useNavigate } from 'react-router-dom';
+import Testimonies from '../components/Testimonies';
+import Questions from '../components/Questions';
+import Location from '../components/Location'
+import Footer from '../components/Footer';
 
 function RegisteredPage() {
 
@@ -39,14 +43,14 @@ function RegisteredPage() {
 
         <div className='loader'>
 
-        <div className='main_loader'>
-        <motion.img src={Loader}
-        animate={{rotate:360}} 
-        initial={{scale:1}} 
-        transition={{repeat: 5, duration: 1}}
-        class= "imageloader"
-        /> 
-        </div>
+          <div className='main_loader'>
+          <motion.img src={Loader}
+          animate={{rotate:360}} 
+          initial={{scale:1}} 
+          transition={{repeat: 5, duration: 1}}
+          class= "imageloader"
+          /> 
+          </div>
 
         <BarLoader 
           color={"#FFD39F"} 
@@ -67,6 +71,15 @@ function RegisteredPage() {
             <Projects />
 
             <IntroductionEmail />
+
+            <Testimonies />
+
+            <Questions />
+
+            <Location />
+
+            <Footer />
+            
         </Fade>
       
       } 
@@ -101,6 +114,15 @@ const Container = styled.div`
   .barloader{
     position: absolute;
     left: 30%;
+  }
+  @media (max-width: 760px){
+    .loader{
+      top: 30%;
+      left: 25%;
+    }
+    .imageloader{
+      width: 200px;
+    }
   }
   
 `

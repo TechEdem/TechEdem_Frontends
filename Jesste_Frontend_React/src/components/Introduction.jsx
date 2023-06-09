@@ -38,7 +38,15 @@ const Container = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color:  rgba(0, 0, 0, 0.56);
+    background-color:  rgba(0, 0, 0, 0.64);
+  }
+  @media (max-width: 900px){
+    .introduction{
+      height: 105vh;
+    }
+    .description{
+      height: 105vh;
+    }
   }
   
 `

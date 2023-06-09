@@ -9,6 +9,7 @@ import Testimonies from '../components/Testimonies'
 import Questions from '../components/Questions'
 import Location from '../components/Location'
 import Footer from '../components/Footer'
+import Navbar from '../utils/Navbar'
 
 function Home() {
   
@@ -39,22 +40,7 @@ function Home() {
 }
 
 const Container = styled.div`
-  .introduction {
-    width: 100%;
-    height: 100vh; 
-    display: flex;
-  }
-  video {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
-  .description{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color:  rgba(0, 0, 0, 0.70);
-  }
+width: 100%
   
 `
 

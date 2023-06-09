@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Background from '../assets/Background.png'
 import Fade from 'react-reveal'
+import '../index.css'
 
 function IntroductionEmail() {
   return (
@@ -19,6 +20,7 @@ function IntroductionEmail() {
           </p>
         <div className="input_main">
           <input type="text" name="" id="" placeholder='Enter your email' className='email_input'/>
+          <br />
           <input type="submit" name="" id="" value='Get Started' className='button'/>
         </div>
         </div>
@@ -61,9 +63,9 @@ padding-top: 15%;
     padding: 1% 30%;
   }
   .input_main{
-    justify-content: space-between;
     padding-top: 2% ;
     padding-left: 24%;
+    display: flex;
   }
   .email_input{
     width: 550px;
@@ -86,6 +88,45 @@ padding-top: 15%;
   }
   .button: hover{
     cursor: pointer;
+  }
+  @media (max-width: 760px){
+    .email_background{
+      height: 60vh;
+      border-radius: 30px;
+    }
+    .main_email_background{
+      border-radius: 30px;
+    }
+    .main h1{
+      font-size: 31px;
+      text-align: left;
+      padding: 20% 5% 8% 5%;
+    }
+    .main p{
+      text-align: justify;
+      font-family: "Calibri";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 22px;
+      padding: 0% 5% 6% 5%;
+    }
+    .input_main{
+      justify-content: space-between;
+      padding-top: 2% ;
+      padding-left: 5%;
+      display: block;
+    }
+    .email_input{
+      width: 320px;
+      border-radius: 10px;
+    }
+    .button{
+      width: 350px;
+      margin-top: 4%;
+      border-radius: 10px;
+      
+    }
   }
 `
 

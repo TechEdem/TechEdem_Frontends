@@ -14,7 +14,7 @@ useEffect(() =>{
     setLoading(true);
     setTimeout(()=>{
         setLoading(false)
-    }, 5000)
+    }, 3000)
 }, [])
 
   return (
@@ -24,20 +24,20 @@ useEffect(() =>{
 
         <div className='loader'>
 
-        <div className='main_loader'>
-        <motion.img src={Loader}
-        animate={{rotate:360}} 
-        initial={{scale:1}} 
-        transition={{repeat: 5, duration: 1}}
-        class= "imageloader"
-        /> 
-        </div>
+          <div className='main_loader'>
+          <motion.img src={Loader}
+          animate={{rotate:360}} 
+          initial={{scale:1}} 
+          transition={{repeat: 5, duration: 1}}
+          class= "imageloader"
+          /> 
+          </div>
 
-        <BarLoader 
-          color={"#FFD39F"} 
-          loading={loading} size={20} 
-          className='barloader'
-        />
+          <BarLoader 
+            color={"#FFD39F"} 
+            loading={loading} size={20} 
+            className='barloader'
+          />
         </div>
       
         :
@@ -67,6 +67,15 @@ const Container = styled.div`
   .barloader{
     position: absolute;
     left: 30%;
+  }
+  @media (max-width: 760px){
+    .loader{
+      top: 30%;
+      left: 25%;
+    }
+    .imageloader{
+      width: 200px;
+    }
   }
 `
 

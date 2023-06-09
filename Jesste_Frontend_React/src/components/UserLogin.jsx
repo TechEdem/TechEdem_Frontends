@@ -38,7 +38,6 @@ function Registration() {
         body: JSON.stringify(data)
       });
       let value = await result.json(); 
-      console.warn(value)
 
     if(email || password){
         if(value.success){
@@ -81,7 +80,7 @@ function Registration() {
 
         <div className='sign'>
           <div className='main_sign'>
-            <h3>New to Jesste Construction? </h3>
+            <p>New to Jesste Construction? </p>
             <div className='link' onClick={handleClick}>Sign Up</div>
 
             {click && (
@@ -96,7 +95,7 @@ function Registration() {
                       
                   <div className='sign'>
                     <div className='main_signup_sign'>
-                      <h3>Already in Jesste construction? </h3>
+                      <p>Already in Jesste construction? </p>
                       <div className='link' onClick={handleLeaveClick}>Sign In</div>
                       </div>
                     <a href='https://stackoverflow.com/'>Need help?</a>
@@ -107,7 +106,7 @@ function Registration() {
 
             }
           </div>
-          <a href='https://stackoverflow.com/'>Need help?</a>
+          <a href='https://stackoverflow.com/' className='help'>Need help?</a>
         </div>
 
         <div className='admin_link'>
@@ -144,6 +143,8 @@ position: relative;
 }
 label{
   padding: 2% 0%;
+  font-family: "Rubik";
+  font-size: 14px;
 }
 input{
   width: 470px;
@@ -178,7 +179,9 @@ button:hover{
 .main_sign{
   display: flex;
   justify-content: space-between;
-  width: 58%;
+  width: 48%;
+  font-family: "Rubik";
+  font-size: 13px;
 }
 .link{
   color: #f4ca98 ;
@@ -240,7 +243,39 @@ a:hover{
 .main_signup_sign{
   display: flex;
   justify-content: space-between;
-  width: 61%;
+  width: 50%;
+}
+@media (max-width: 760px){
+  padding-top: 20%;
+
+  .login_details{
+    padding: 5% 0%;
+    width: 100%;
+  }
+  .typed{
+    padding: 5% 29%;
+    font-size: 60px;
+}
+input{
+  width: 300px;
+}
+button{
+  width: 320px;
+  height: 60px;
+  font-size: 25px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 228, 196, 0.866);
+}
+.main_sign{
+  padding-top: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.help{
+  display: none;
 }
 `
 export default Registration

@@ -20,7 +20,6 @@ function IntroProfile() {
 
         <Fade top duration={1000} distance="40px">
         
-          
             <video src={Construction} autoPlay loop muted/>
         </Fade>
 
@@ -84,6 +83,11 @@ const Container = styled.div`
   .experience_details_text{
     display: flex;
   }
+  video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
   .enquiry{
     background: #D9D9D9;
     width: 50%
@@ -122,6 +126,18 @@ const Container = styled.div`
     transition: all 0.3s ease-in-out;
     background: rgba(217, 217, 217, 0.87);
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  }
+  @media (max-width: 760px){
+    display: block;
+    .experience{
+      width: 92.3%;
+      background: #262626;
+      padding: 10% 4%;
+    }
+    .experience_details{
+      display: none;
+    }
+    
   }
 `
 export default IntroProfile

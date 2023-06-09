@@ -5,6 +5,36 @@ import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion';
 import Fade from 'react-reveal'
 import { useNavigate } from 'react-router-dom';
+import Menu from '../assets/Menu.png'
+import Home from '../assets/Home.png'
+import About from '../assets/About.png'
+import Category from '../assets/Category.png'
+import Contact from '../assets/Contact.png'
+import Logout from '../assets/Logout.png'
+import Cancel from '../assets/cancel.png';
+
+const NavIcons = [
+  {
+    link : '/',
+    image : Home,
+    title : 'Home',
+  },
+  {
+    link : '/about',
+    image : About,
+    title : 'About',
+  },
+  {
+    link : '/category',
+    image : Category,
+    title : 'Category',
+  },
+  {
+    link : '/contact',
+    image : Contact,
+    title : 'Contact',
+  },
+]
 
 function Navbar() {
 
@@ -16,6 +46,15 @@ function Navbar() {
 
   const handleLeave = () => {
     setIsOpen(false);
+  };
+
+  const[join, setJoin] = useState(false);
+
+  const handleJoin = () => {
+    return setJoin(true);
+  };
+  const handleLeaveJoin = () => {
+    return setJoin(false);
   };
 
 
@@ -70,6 +109,34 @@ function Navbar() {
           </div>
 
         </div>
+
+        <img src={Menu} alt = '' className='hambuger' onClick={handleJoin}/>
+        {
+          join && (
+            <div className='load'>
+            
+                <img src={Cancel} alt='' onClick={handleLeaveJoin} className='main_cancel'/>
+              <div className='load_link'>
+              {
+                NavIcons.map((icon, index)=>(
+                  <Fade right duration={1000} distance="40px">
+                    <div className = 'NavMain' key={index}>
+                      <Link to={icon.link}><img src={icon.image} alt='images' /></Link>
+                      <p>{icon.title}</p>
+                    </div>
+                  </Fade>
+                ))
+              }
+              </div>
+              <Fade right duration={1000} distance="40px">
+                <div className = 'logout'>
+                  <Link to='/' onClick={logout}><img src={Logout} alt='images' /></Link>
+                  <p>Logout</p>
+                </div>
+              </Fade>
+            </div>
+          )
+        }
 
     </Container>
   )
@@ -179,7 +246,6 @@ const Container = styled.div`
     z-index: 2;
     background: rgba(82, 82, 82, 0.95);
   }
-  
   .join_menu img{
     width: 50px;
     height: 50px;
@@ -188,6 +254,95 @@ const Container = styled.div`
     cursor: pointer;
     z-index: 2;
   }
+  .hambuger{
+    display: none;
+    width: 50px;
+    height: 50px;
+  }
+  @media (max-width: 760px){
+    displaY: flex;
+
+  .logo{
+    padding: 2%;
+    width: 100%;
+  }
+  .hambuger{
+    display: block;
+    padding: 6%;
+    width: 30px;
+    height: 30px;
+  }
+  nav{
+    display: none;
+  }
+  .authentication{
+    display: none;
+  }
+  .hambuger{
+    display: block;
+    padding: 6%;
+    width: 30px;
+    height: 30px;
+  }
+  .load{
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background: rgba(82, 82, 82, 0.98);
+  }
+  .main_cancel{
+    width: 40px;
+    height: 40px;
+    float: right;
+    padding: 6%;
+  }
+  .main_loader{
+    width: 100%;
+    height: 100%;
+    background: red;
+  }
+  .load_link{
+    font-size: 25px;
+    padding: 30% 5%;
+    text decoration: none;
+  }
+  .load_link a{
+    color: white;
+    text decoration: none;
+  }
+  .NavMain{
+    display: flex;
+    margin-top: 50px;
+  }
+  .NavMain img{
+    width: 50px;
+    height: 50px;
+  }
+  .NavMain img:hover{
+    transformation: scale(1.1);
+    transition: all 0.3s ease-in-out;
+  }
+  .NavMain p{
+    padding: 4% 6%;
+    color: white;
+  }
+  .logout{
+    display: flex;
+    margin-top: 50px;
+    padding: 0% 5%;
+  }
+  .logout img{
+    width: 50px;
+    height: 50px;
+  }
+  .logout p{
+    padding: 4% 6%;
+    color: white;
+    font-size: 25px
+  }
+}
   
 
 `

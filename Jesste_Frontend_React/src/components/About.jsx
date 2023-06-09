@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Slide, Fade}  from 'react-reveal'
 import AboutImage from '../assets/About_Image.png'
 import Typed from 'react-typed'
+import '../index.css'
 
 function About() {
   return (
@@ -68,6 +69,15 @@ const Container = styled.div`
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+  }
+  @media (max-width: 760px){
+    .about{
+      display: block;
+    }
+    .about img{
+      width: 300px;
+      height: 250px;
+    }
   }
 `
 export default About
