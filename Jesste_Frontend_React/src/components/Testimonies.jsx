@@ -150,6 +150,9 @@ h1{
   .main_slider{
     width: 93%;
   }
+  .main_slider p{
+    padding-left: 13%;
+  }
 }
 `
 export default Testimonies

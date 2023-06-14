@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Slide, Fade}  from 'react-reveal'
+import { HashLink} from 'react-router-hash-link'
 import AboutImage from '../assets/About_Image.png'
 import Typed from 'react-typed'
 import '../index.css'
@@ -27,7 +28,10 @@ function About() {
             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
             voluptate velit esse cillum dolore eu fug
             </p>
-            <button>Learn More</button>
+            <a href="/about">
+              <button>Learn More</button>
+            </a>
+            
         </div>
         </Fade>
         
@@ -54,7 +58,10 @@ const Container = styled.div`
   .details p{
     text-align: justify;
     padding: 5% 0%;
-    font-size: 17px;
+    font-size: 15px;
+    font-family: 'Kanit';
+    font-weight: light;
+    line-height: 25px;
   }
   .details button{
     width: 250px;
@@ -63,6 +70,8 @@ const Container = styled.div`
     border-radius: 10px;
     border: none;
     font-weight: regular;
+    font-family: 'Kanit';
+    font-size: 20px;
   }
   .details button: hover{
     cursor: pointer;

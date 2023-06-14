@@ -92,10 +92,6 @@ padding-top: 15%;
   @media (max-width: 760px){
     .email_background{
       height: 60vh;
-      border-radius: 30px;
-    }
-    .main_email_background{
-      border-radius: 30px;
     }
     .main h1{
       font-size: 31px;

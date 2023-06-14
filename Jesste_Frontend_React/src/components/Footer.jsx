@@ -26,6 +26,7 @@ const socialMedia = [
     image: Twitter,
   }
 ];
+
  const footerDetails = [
   {
     picture: Location,
@@ -39,6 +40,25 @@ const socialMedia = [
     picture: Mail,
     details: 'jesseocloo1986@gmail.com'
   }
+ ];
+
+ const Nav = [
+  {
+    title: 'Home',
+    link: '/',
+  },
+  {
+    title: 'About',
+    link: '/about',
+  },
+  {
+    title: 'Categories',
+    link: '/',
+  },
+  {
+    title: 'Contact',
+    link: '/',
+  }
  ]
 
 function Footer() {
@@ -46,61 +66,34 @@ function Footer() {
     <Container>
       <div className='main_footer'>
 
-        <div className='first_footer'>
-          <h1>Questions</h1>
-
-          <form>
-
-            <div className='form'>
-              <div className='footer_details'>
-                <label for='Fullname'>Fullname</label>
-                <br />
-                <input type='text' name='fullname' placeholder='Enter full name' required />
-              </div>
-
-              <div className='footer_details'>
-                <label for='Email'>Email</label>
-                <br />
-                <input type='email' name='email' placeholder='Enter Email' required />
-              </div>
-            </div>
-
-            <div className='footer_details'>
-            <label for='Email'>Message</label>
-            <br />
-            <textarea name="description" placeholder='Type your Message' />
-            </div>
-
-            <div className='submission'>
-              <button className='submit'>Submit</button>
-            </div>
-
-          </form>
- 
-
-        </div>
-
         <div className='second_footer'>
 
-          <div className='social_media_handles'>
+            <div className='main_footer_nav'>
             {
-              socialMedia.map((each, index)=>(
-                <div className='social_media'key={index}>
-                  <img src={each.image} alt='handles'/>
+              Nav.map((each, index) => (
+                <div className='footer_nav' key={index}>
+                <a href={each.link}>{each.title}</a>
                 </div>
               ))
             }
           </div>
 
-          <div className='footer_info'>
-            {
-              footerDetails.map((each, index) => (
-                <div className='info' key={index}>
-                  <img src={each.picture} alt='handles'/>
-                  <p>{each.details}</p>
-                </div>
-              ))
-            }
+          <div className='main_footer_info'>
+
+            <div className='footer_info'>
+              {
+                footerDetails.map((each, index) => (
+                  <div className='info' key={index}>
+                    <img src={each.picture} alt='handles'/>
+                    <p>{each.details}</p>
+                  </div>
+                ))
+              }
+            </div>
+            
+
+
+          
           </div>
           
         </div>
@@ -120,77 +113,31 @@ function Footer() {
 const Container = styled.div`
 padding-top: 4%;
 
-.main_footer{
-  display: flex;
-  width: 100%;
-}
-.first_footer{
-  background: #FFD39F;
-  width: 50%;
-  height: 60vh;
-}
-.first_footer h1{
-  padding: 3% 0%;
-  text-align: center;
-  font-family: 'Rubik';
-  color: #515050;
-}
-form{
-  padding: 1% 7%;
-}
-.form{
-  display: flex;
-  justify-content: space-between;
-  padding-buttom: 5%;
-}
-.footer_details label{
-  font-family: 'Rubik';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 36px;
-  color: #928F8F;
-}
-.footer_details input{
-  width: 280px;
-  height: 30px;
-  padding: 2%;
-  border: none;
-  border-radius: 5px;
-  font-family: "Rubik";
-}
-.footer_details textarea{
-  width: 625px;
-  height: 100px;
-  padding: 3%;
-  border: none;
-  border-radius: 5px;
-  font-family: "Rubik";
-}
-.submission{
-  padding-top: 2%;
-}
-.submit{
-  width: 200px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  font-family: "Rubik";
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
-}
 .second_footer{
-  width: 50%;
   height: 60vh;
 }
-.social_media_handles{
+.main_footer_nav{
   display: flex;
-  justify-content: space-around;
-  padding: 2% 0%;
+  padding: 0% 0%;
   background: rgba(0, 0, 0, 0.75);
-  width: 100%;
+  padding: 2% 12%;
 }
-.footer_info{
-  padding: 10% 15%;
+.footer_nav{
+  padding-left: 15%;
+}
+.footer_nav a{
+  text-decoration: none;
+  color: white;
+  padding-left: 30%;
+  padding-top: 10%;
+}
+.social_media{
+  padding: 2% 5%;
+}
+.main_footer_info{
+  display: flex;
+  padding-left: 30%;
+  padding-top: 4%;
 }
 .info{
   display: flex;
@@ -198,6 +145,12 @@ form{
 }
 .info p{
   padding: 1% 3%;
+}
+.info_second a{
+  text-decoration: none;
+  color: white;
+  padding-left: 30%;
+  padding-top: 10%;
 }
 .copyright{
   background: grey;
@@ -228,9 +181,22 @@ form{
   }
   .second_footer{
     width: 100%;
-    height: 60vh;
+    height: 40vh;
   }
-  
+  .copyright{
+    padding: 5% 10%;
+  }
+  .footer_info{
+    padding: 10%;
+  }
+  .info{
+    display: flex;
+    padding: 2%;
+
+  }
+  .info p{
+    padding: 1% 10%;
+  }
   
 }
 `

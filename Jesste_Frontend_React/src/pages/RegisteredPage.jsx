@@ -6,7 +6,7 @@ import { BarLoader } from 'react-spinners';
 import Introduction from '../utils/Introduction'
 import IntroProfile from '../components/IntroProfile'
 import Projects from '../components/Projects'
-import About from '../components/About'
+import About from '../components/IntroductionAbout'
 import IntroductionEmail from '../components/IntroductionEmail'
 import Fade from 'react-reveal';
 import { useNavigate } from 'react-router-dom';

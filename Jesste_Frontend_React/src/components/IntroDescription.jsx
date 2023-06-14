@@ -10,6 +10,34 @@ import Building from '../assets/building-logo.png'
 import LandScape from '../assets/landscape-logo.png'
 import { Fade } from 'react-reveal'
 
+const service = [
+  {
+    image: Architecture,
+    description: 'Lorem ipsum dolor sit consectetur adipiscing.',
+    title: 'Architecture'
+  },
+  {
+    image: LandSurvey,
+    description: 'Lorem ipsum dolor sit consectetur adipiscing.',
+    title: 'Survey'
+  },
+  {
+    image: Construction,
+    description: 'Lorem ipsum dolor sit consectetur adipiscing.',
+    title: 'Civil Engineering'
+  },
+  {
+    image: Building,
+    description: 'Lorem ipsum dolor sit consectetur adipiscing.',
+    title: 'Construction'
+  },
+  {
+    image: LandScape,
+    description: 'Lorem ipsum dolor sit consectetur adipiscing.',
+    title: 'Land Sale'
+  },
+  
+]
 
 function Introduction() {
   return (
@@ -42,26 +70,14 @@ function Introduction() {
             <h1>Our services</h1>
           </div>
 
-          <div className='special_services'>
-            <img src={Architecture} alt="construction" />
-            <Services title="Architecture" statement="Lorem ipsum dolor sit consectetur adipiscing."/>
-          </div>
-          <div className='special_services'>
-            <img src={LandSurvey} alt="construction" />
-            <Services title="Survey" statement="Lorem ipsum dolor sit consectetur adipiscing."/>
-          </div>
-          <div className='special_services'>
-            <img src={Construction} alt="construction" />
-            <Services title="Civil Engineering" statement="Lorem ipsum dolor sit consectetur adipiscing."/>
-          </div>
-          <div className='special_services'>
-            <img src={Building} alt="construction" />
-            <Services title="Construction" statement="Lorem ipsum dolor sit consectetur adipiscing."/>
-          </div>
-          <div className='special_services'>
-            <img src={LandScape} alt="construction" />
-            <Services title="Land Sale" statement="Lorem ipsum dolor sit consectetur adipiscing."/>
-          </div>
+          {
+            service.map ((each, index)=>(
+              <div className='special_services' key={index}>
+              <img src={each.image} alt="construction" />
+              <Services title={each.title} statement={each.description}/>
+              </div>
+            ))
+          }
 
         </div>
       </div>
@@ -125,8 +141,8 @@ const Container = styled.div`
   padding-top: 2%;
   padding-right: 20%;
   text-align: justify;
-  font-family: "Calibri";
-  font-size: 17px;
+  font-family: 'Kanit';
+  font-size: 15px;
 }
 .button-container{
   padding-top: 5%

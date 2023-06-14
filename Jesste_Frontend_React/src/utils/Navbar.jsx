@@ -58,7 +58,7 @@ function Navbar() {
   };
 
 
-  const auth = localStorage.getItem('user')
+  // const auth = localStorage.getItem('user')
   let navigate = useNavigate()
   const logout =()=>{
     localStorage.removeItem('token')

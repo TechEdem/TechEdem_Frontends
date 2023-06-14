@@ -174,17 +174,31 @@ const Container = styled.div`
     font-size: 31px;
   }
   .typed{
-    font-size: 26px;
+    font-size: 23px;
     text-align: center;
     font-weight: 700;
-    padding-left: 5%;
+    padding-left: 7%;
     font-family: 'Rubik', sans-serif;
   }
-  .question_container{
-    padding: 0% 5%;
+  .question{
+    margin-top: 20%;
   }
-  .question h1{
+  .question_container{
+    padding: 0% 5% 10% 5%;
+  }
+  .question h2{
     font-size: 15px;
+  }
+  .main_answer{
+    position: absolute;
+    margin-top: 12%;
+  }
+  .answers{
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    width: 310px;
   }
 }
 `

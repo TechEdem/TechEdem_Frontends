@@ -84,9 +84,12 @@ function Projects() {
           <img src={First} alt='' className='main' onMouseEnter={handleHover}/>
           {
             isOpen && (
-              <div className='main_hover'>
-                <p>h1</p>
-              </div>
+              <Fade duration={800}>
+                <div className='main_hover'>
+                  <p>h1</p>
+                </div>
+              </Fade>
+              
             )
           }
           </div>
@@ -100,9 +103,11 @@ function Projects() {
         <img src={Second} alt='' className='secondary_main' onMouseEnter={handleHover2}/>
         {
           isOpen2 && (
-            <div className='secondary_hover'>
-              <p>h1</p>
-            </div>
+            <Fade duration={800}>
+              <div className='secondary_hover'>
+                <p>h1</p>
+              </div>
+            </Fade>
           )
         }
         </div>
@@ -111,9 +116,11 @@ function Projects() {
         <img src={Third} alt='' className='secondary_main' onMouseEnter={handleHover3}/>
         {
           isOpen3 && (
-            <div className='secondary_hover'>
-              <p>h1</p>
-            </div>
+            <Fade duration={800}>
+              <div className='secondary_hover'>
+                <p>h1</p>
+              </div>
+            </Fade>
           )
         }
         </div>
@@ -122,9 +129,11 @@ function Projects() {
         <img src={Forth} alt='' className='secondary_main' onMouseEnter={handleHover4}/>
         {
           isOpen4 && (
-            <div className='secondary_hover'>
-              <p>h1</p>
-            </div>
+            <Fade duration={800}>
+              <div className='secondary_hover'>
+                <p>h1</p>
+              </div>
+            </Fade>
           )
         }
         </div>
@@ -133,9 +142,11 @@ function Projects() {
         <img src={Fifth} alt='' className='secondary_main' onMouseEnter={handleHover5}/>
         {
           isOpen5 && (
-            <div className='secondary_hover'>
-              <p>h1</p>
-            </div>
+            <Fade duration={800}>
+              <div className='secondary_hover'>
+                <p>h1</p>
+              </div>
+            </Fade>
           )
         }
         </div>
@@ -144,9 +155,11 @@ function Projects() {
         <img src={Sixth} alt='' className='secondary_main' onMouseEnter={handleHover6}/>
         {
           isOpen6 && (
-            <div className='secondary_hover'>
-              <p>h1</p>
-            </div>
+            <Fade duration={800}>
+              <div className='secondary_hover'>
+                <p>h1</p>
+              </div>
+            </Fade>
           )
         }
         </div>
@@ -155,9 +168,12 @@ function Projects() {
         <img src={Seventh} alt='' className='secondary_main' onMouseEnter={handleHover7}/>
         {
           isOpen7 && (
-            <div className='secondary_hover'>
-              <p>h1</p>
-            </div>
+            <Fade duration={800}>
+              <div className='secondary_hover'>
+                <p>h1</p>
+              </div>
+            </Fade>
+            
           )
         }
         </div>
@@ -166,15 +182,16 @@ function Projects() {
     </div>
     </Fade>
 
-
     <Fade top duration={1000} distance="40px">
     <div className='main_first' onMouseLeave={handleLeave1}>
     <img src={Eight} alt='' className='main' onMouseEnter={handleHover1}/>
     {
       isOpen1 && (
-        <div className='main_hover'>
-          <p>h1</p>
-        </div>
+        <Fade duration={800}>
+          <div className='main_hover'>
+            <p>h1</p>
+          </div>
+        </Fade>
       )
     }
     </div>

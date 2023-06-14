@@ -22,7 +22,7 @@ const NavIcons = [
   {
     link : '/about',
     image : About,
-    title : 'About',
+    title : 'About Us',
   },
   {
     link : '/category',
@@ -196,7 +196,7 @@ const Container = styled.div`
     font-weight: 300;
     font-size: 17px;
     line-height: 37px;
-    color: #FFFFFF;
+    color: rgb(189, 189, 189);
     text-decoration: none;
   }
   .navigation: hover{

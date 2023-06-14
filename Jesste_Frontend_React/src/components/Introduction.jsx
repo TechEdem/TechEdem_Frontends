@@ -45,6 +45,7 @@ const Container = styled.div`
       height: 105vh;
     }
     .description{
+      width: 100.50%;
       height: 105vh;
     }
   }
