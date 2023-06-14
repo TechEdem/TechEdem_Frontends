@@ -10,6 +10,7 @@ import RegisteredPage from './pages/RegisteredPage';
 import Login from './pages/Login';
 import PrivateComponent from "./components/PrivateComponent";
 import AboutUs from './screens/AboutUs';
+import Contact from './screens/Contact';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
           <Route path = '/login' element = {<Login />} />
           <Route path='/registered' element = {<RegisteredPage />} />
           <Route path='/about' element = {<AboutUs />} />
+          <Route path='/contact' element = {<Contact />} />
       </Routes>
   </Router>
 );

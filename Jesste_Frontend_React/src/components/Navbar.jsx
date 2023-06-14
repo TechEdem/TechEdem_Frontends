@@ -101,7 +101,7 @@ function Navbar() {
                       </Fade>
                     )}
                 </li>
-                <li><Link to= '' className='navigation'>Contact</Link></li>    
+                <li><Link to= '/contact' className='navigation'>Contact</Link></li>    
             </ul>
         </nav>
 
