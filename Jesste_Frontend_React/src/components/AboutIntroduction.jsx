@@ -1,21 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import Navbar from './Navbar'
-import AboutIntroPage from './AboutIntroPage'
 import AboutVision from './AboutVision'
 import AboutMission from './AboutMission'
 import AboutYears from './AboutYears'
 import AboutTeam from './AboutTeam'
 import AboutMedia from './AboutMedia'
 import Footer from './Footer'
+import Header from './Header'
 
 function AboutIntroduction() {
   return (
     <Container>
-        <div className='about_info'>
-            <Navbar />
-            <AboutIntroPage />
-        </div>
+        <Header head = 'About Us' />
+
         <AboutVision />
 
         <AboutMission />

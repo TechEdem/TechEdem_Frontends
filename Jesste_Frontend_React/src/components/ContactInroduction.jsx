@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import Construction from '../assets/Construction.mp4'
-import Navbar from './Navbar'
 import Location from '../assets/subtract.png'
 import Phone from '../assets/phone.png'
 import Mail from '../assets/mail.png'
 import '../index.css'
-import Typed from 'react-typed'
-
+import Footer from './Footer'
+import Header from './Header'
+import { Fade } from 'react-reveal'
 const info = [
     {
         image: Phone,
@@ -30,55 +29,127 @@ const info = [
 function ContactInroduction() {
   return (
     <Container>
-        <div className='introduction'>
-            <video src ={Construction} autoPlay loop muted/>
-            <div className='description'>
-              <Navbar />
-              <div className='description-text'>
-                <Typed strings={["Contact Us",]} typeSpeed = {80} backSpeed={80} loop  className='title'/>
-                <p>
-                In id enim odio. Nunc aliquet diam tortor, at venenatis urna sagittis non. Suspendisse sodales nulla sit amet sem 
-                condimentum, ac euismod nibh elementum. Praesent eu urna at sem sodales venenatis. Mauris efficitur dapibus enim in posuere
-                </p>
+
+        <Header head = 'Contact Us' />
+
+        <div className='contact-info'>
+
+          <div className='question'>
+            <h2>How can we help you?</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <form>
+              <div className="main-input">
+                <input type='text' placeholder='Enter your fullname' />
               </div>
-            </div>    
+
+              <div className="main-input">
+                <input type='text' placeholder='Enter your email' />
+              </div>
+
+              <div className="main-input">
+                <textarea placeholder='Enter your message' />
+              </div>
+              <button className='submit'>Send</button>
+            </form>
+          </div>
+
+          <div className='info-list'>
+            {
+              info.map((item, index) => (
+                <Fade top duration={1000} distance="40px">
+                  <div className='info-item' key={index}>
+                  <img src={item.image} alt={item.title} />
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </Fade>
+              ))
+            }
+          </div>
         </div>
+
+        <Footer />
     </Container>
   )
 }
 
 const Container = styled.div`
-.introduction {
-    width: 100%;
-    height: 80vh; 
+  .contact-info{
     display: flex;
+    padding: 5% 0%;
   }
-  video {
-    width: 100%;
-    height: 80vh;
-    object-fit: cover;
+  .question{
+    width: 50%;
+    padding: 2% 5%;
   }
-  .description{
-    position: absolute;
-    width: 100%;
-    height: 80%;
-    background-color:  rgba(0, 0, 0, 0.44);
-  }
-  .description-text{
-    justify-content: center;
-    color: white;
-    padding: 4% 15%;
-  }
-  .title{
-    padding-left: 30%;
-    font-size: 70px;
+  .question h2{
+    font-size: 40px;
     font-family: 'Poppins';
     font-weight: 700;
   }
-  .description-text p{
-    padding: 1% 20%;
+  .question p{
+    padding: 3% 30% 3% 0%;
     font-family: 'Rubik';
-    line-height: 30px;
+    font-size: 12px;
+  }
+  .main-input{
+    padding: 2% 0%;
+  }
+  input{
+    width: 500px;
+    height: 20px;
+    padding: 1% 2%;
+    border: 2px solid rgba(128, 128, 128, 0.36);
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+    font-family: 'Rubik';
+  }
+  textarea{
+    width: 500px;
+    height: 80px;
+    padding: 2%;
+    border: 2px solid rgba(128, 128, 128, 0.36);
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+    font-family: 'Rubik';
+  }
+  .submit{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(128, 128, 128, 0.56);
+    color: white;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .submit: hover{
+    background-color: rgba(128, 128, 128, 0.76);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+  }
+  .info-list{
+    padding-top: 6%;
+  }
+  .info-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 100px;
+    padding: 1% 2%;
+    border: 2px solid rgba(128, 128, 128, 0.36);
+    outline: none;
+    resize: none;
+    border-radius: 10px;
+    font-family: 'Rubik';
   }
 
 `
