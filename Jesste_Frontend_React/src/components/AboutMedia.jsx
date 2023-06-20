@@ -47,6 +47,18 @@ const Container =  styled.div`
     padding: 2% 25%;
 
 }
+@media(max-width: 760px){
+    .media{
+        justify-content: space-between;
+        padding: 10% 10%;
+    
+    }
+    .media_main img{
+        width: 50px;
+        height: 50px;
+    
+    }
+}
 `
 
 export default AboutMedia

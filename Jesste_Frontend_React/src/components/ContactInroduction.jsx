@@ -41,11 +41,11 @@ function ContactInroduction() {
             </p>
             <form>
               <div className="main-input">
-                <input type='text' placeholder='Enter your fullname' />
+                <input type='text' placeholder='Enter your fullname' className='input-box'/>
               </div>
 
               <div className="main-input">
-                <input type='text' placeholder='Enter your email' />
+                <input type='text' placeholder='Enter your email' className='input-box'/>
               </div>
 
               <div className="main-input">
@@ -71,6 +71,7 @@ function ContactInroduction() {
         </div>
 
         <Footer />
+
     </Container>
   )
 }
@@ -97,7 +98,7 @@ const Container = styled.div`
   .main-input{
     padding: 2% 0%;
   }
-  input{
+  .input-box{
     width: 500px;
     height: 20px;
     padding: 1% 2%;
@@ -150,6 +151,39 @@ const Container = styled.div`
     resize: none;
     border-radius: 10px;
     font-family: 'Rubik';
+  }
+  @media(max-width: 760px){
+    .contact-info{
+      display: block;
+      padding: 0%;
+    }
+    .question{
+      width: 350px;
+      padding: 10% 5%;
+    }
+    .question p{
+      padding: 3% 1%;
+    }
+    .main-input{
+      padding: 2% 0%;
+    }
+    .input-box{
+      width: 330px;
+      height: 40px;
+    }
+    textarea{
+      width: 330px;
+    }
+    .info-list{
+      padding: 10% 10%;
+    }
+    .info-item{
+      display: flex;
+      flex-direction: none;
+      width: 300px;
+      height: 90px;
+    }
+    
   }
 
 `

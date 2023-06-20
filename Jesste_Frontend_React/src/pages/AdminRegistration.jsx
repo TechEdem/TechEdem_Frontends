@@ -1,21 +1,52 @@
-import React, {useState} from 'react'
-import styled from 'styled-components'
-import Background from '../assets/Background.png'
-import Logo from '../assets/Ellipse.svg';
+import React, {useState, useEffect} from 'react'
+import styled from 'styled-components';
 import {motion} from 'framer-motion';
+import Loader from '../assets/Ellipse.svg';
+import { BarLoader } from 'react-spinners';
+import Fade from 'react-reveal';
+import Logo from '../assets/Ellipse.svg'
+import Background from '../assets/Background.png'
+import { Link } from 'react-router-dom';
 
+function AdminLogin() {
 
-function AdminRegistration() {
-    const [isLoading, setIsLoading] = useState(true);
+    const [loading, setLoading] = useState();
+    useEffect(() =>{
+        setLoading(true);
+        setTimeout(()=>{
+            setLoading(false)
+        }, 3000)
+    }, [])
 
-    const handleLogin = () => {
-        setIsLoading(false);
-    };
+    
+
   return (
     <Container>
     {
-        isLoading && (
-            <div className='secret_page_main'>
+        loading ?
+
+        <div className='loader'>
+
+        <div className='main_loader'>
+        <motion.img src={Loader}
+        animate={{rotate:360}} 
+        initial={{scale:1}} 
+        transition={{repeat: 5, duration: 1}}
+        class= "imageloader"
+        /> 
+        </div>
+
+        <BarLoader 
+          color={"#FFD39F"} 
+          loading={loading} size={20} 
+          className='barloader'
+        />
+        </div>
+      
+        :
+
+        <Fade>
+          <div className='secret_page_main'>
                 <div className='secret_page'>
                     <img src={Logo} alt='background'/>
                     <div className='secret'>
@@ -24,37 +55,36 @@ function AdminRegistration() {
                             <p>Please provide the secret code, to progress to the login or registration page</p>
                             <input type='password' placeholder='Enter Secret Code'/>
                             <br />
-                            <button onClick={handleLogin}>Proceed</button>
+                            <Link to='/adminlogin'><button>Proceed</button></Link>
                         </div>
                     </div>   
                 </div>
             </div>
-        )
-    }
-        
-      {
-        !isLoading && (
-            <div className='container_main'>
-                <div className='admin_intro'>
-                    <div className='admin_intro_container'>
-                        <motion.img src={Logo} alt='Logo'
-                        animate={{rotate:360}} 
-                        initial={{scale:1}} 
-                        transition={{repeat: 5, duration: 1}}
-                        className='logo'
-                        />
-                    </div>
-                </div>
-            </div>
-
+        </Fade>
       
-        )
-      }
+
+   }  
     </Container>
   )
 }
-const Container =  styled.div`
-.secret_page_main{
+
+const Container = styled.div`
+  .loader{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+  }
+  .main_loader{
+    margin-bottom: 30%;
+  }
+  .imageloader{
+    width: 300px;
+  }
+  .barloader{
+    position: absolute;
+    left: 30%;
+  }
+  .secret_page_main{
     background-image: url(${Background});
     background-size: cover;
     background-repeat: no-repeat;
@@ -103,24 +133,6 @@ const Container =  styled.div`
     font-weight: 500;
     padding: 2% 9%;
 }
-.container_main{
-    display: flex;
-}
-.admin_intro{
-    background-image: url(${Background});
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 50%;
-}
-.admin_intro_container{
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.505);
-    padding: 27%;
-}
-.logo{
-    width: 300px;
-}
-
 `
-export default AdminRegistration
+
+export default AdminLogin

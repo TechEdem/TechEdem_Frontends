@@ -98,7 +98,7 @@ function Registration() {
                       <p>Already in Jesste construction? </p>
                       <div className='link' onClick={handleLeaveClick}>Sign In</div>
                       </div>
-                    <a href='https://stackoverflow.com/'>Need help?</a>
+                    <a href='https://stackoverflow.com/' className='sign_help'>Need help?</a>
                   </div>
 
               </div>
@@ -125,11 +125,11 @@ const Container = styled.div`
 position: relative;
 
 .login_details{
-  padding: 5% 37%;
+  padding: 5% 30%;
   width: 100%;
 }
 .typed{
-    padding: 5%;
+    padding: 5% ;
     font-size: 50px;
     font-weight: bold;
     background: linear-gradient(97.24deg, #f4ca98 50.37%, rgba(243, 194, 95, 0.233) 113.02%);
@@ -152,6 +152,7 @@ input{
   border-radius: 10px;
   border: 3px solid rgba(154, 154, 154, 0.404);
   padding-left: 5%;
+  outline: none;
 }
 .button{
     padding: 6% 9%;
@@ -255,27 +256,45 @@ a:hover{
   .typed{
     padding: 5% 29%;
     font-size: 60px;
-}
-input{
-  width: 300px;
-}
-button{
-  width: 320px;
-  height: 60px;
-  font-size: 25px;
-  font-weight: 500;
-  border-radius: 10px;
-  border: none;
-  background-color: rgba(255, 228, 196, 0.866);
-}
-.main_sign{
-  padding-top: 10px;
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-}
-.help{
-  display: none;
+  }
+  input{
+    width: 300px;
+  }
+  button{
+    width: 320px;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(255, 228, 196, 0.866);
+  }
+  .main_sign{
+    padding-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .help{
+    display: none;
+  }
+  .typed_sign{
+    padding: 5% 18%;
+    font-size: 60px;
+  }
+  .main_signup_sign{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    font-family: "Rubik";
+    font-size: 13px;
+  }
+  .sign_help{
+    display: none;
+  }
+  .signup_details{
+    padding: 30% 0%;
+  }
 }
 `
 export default Registration
