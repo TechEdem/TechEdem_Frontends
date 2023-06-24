@@ -12,6 +12,7 @@ import PrivateComponent from "./components/PrivateComponent";
 import AboutUs from './screens/AboutUs';
 import Contact from './screens/Contact';
 import AdminLogin from './components/AdminLogin';
+import Category from './screens/Category';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +27,7 @@ root.render(
           <Route path='/about' element = {<AboutUs />} />
           <Route path='/contact' element = {<Contact />} />
           <Route path='/adminlogin' element = {<AdminLogin />} />
+          <Route path='/category' element={<Category />} />
       </Routes>
   </Router>
 );

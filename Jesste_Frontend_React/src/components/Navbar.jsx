@@ -88,11 +88,11 @@ function Navbar() {
                 <li><Link to= '/' className='navigation'>Home</Link></li>
                 <li><Link to= '/about' className='navigation'>About</Link></li>
                 <li onMouseLeave={handleLeave}>
-                    <li onMouseEnter={handleHover}><Link to= '' className='navigation'>Categories</Link></li>
+                    <li onMouseEnter={handleHover}><Link to= '/category' className='navigation'>Categories</Link></li>
                     {isOpen && (
                       <Fade top duration={1000} distance="40px">
                       <div className="main-menu">
-                        <li><Link to= '/login' className='navigation'>Architecture</Link></li>
+                        <li><Link to= '/category' className='navigation'>Architecture</Link></li>
                         <li><Link to= '' className='navigation'>Construction</Link></li>
                         <li><Link to= '' className='navigation'>Survey</Link></li>
                         <li><Link to= '' className='navigation'>Civil Engineering</Link></li>
