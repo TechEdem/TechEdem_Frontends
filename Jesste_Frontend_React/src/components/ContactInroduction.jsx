@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Location from '../assets/subtract.png'
 import Phone from '../assets/phone.png'
@@ -7,6 +7,10 @@ import '../index.css'
 import Footer from './Footer'
 import Header from './Header'
 import { Fade } from 'react-reveal'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'
+
 const info = [
     {
         image: Phone,
@@ -27,6 +31,44 @@ const info = [
 ];
 
 function ContactInroduction() {
+
+  const [fullname, setFullname] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async(event) => {
+    event.preventDefault();
+    let data = {
+      fullname: fullname,
+      email: email,
+      message: message,
+    }
+    const result = await fetch ("http://localhost:6570/jesste/api/questions/register", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+    let value = result.json();
+    console.warn(value);
+    if(fullname || email || message) {
+      toast.success('Thanks for your question. We will get back to you shortly');
+      setFullname('');
+      setEmail('');
+      setMessage('');
+    }
+    else {
+      toast.error('Please fill all the fields');
+      setFullname('');
+      setEmail('');
+      setMessage('');
+      return false;
+    }
+  }
+
   return (
     <Container>
 
@@ -39,17 +81,17 @@ function ContactInroduction() {
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="main-input">
-                <input type='text' placeholder='Enter your fullname' className='input-box'/>
+                <input type='text' placeholder='Enter your fullname' className='input-box' name="fullname" value={fullname} onChange={(e)=>setFullname(e.target.value)}/>
               </div>
 
               <div className="main-input">
-                <input type='text' placeholder='Enter your email' className='input-box'/>
+                <input type='text' placeholder='Enter your email' className='input-box' name="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
               </div>
 
               <div className="main-input">
-                <textarea placeholder='Enter your message' />
+                <textarea placeholder='Enter your message' name="message" value={message} onChange={(e)=>setMessage(e.target.value)}/>
               </div>
               <button className='submit'>Send</button>
             </form>

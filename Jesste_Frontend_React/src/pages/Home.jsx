@@ -9,7 +9,6 @@ import Testimonies from '../components/Testimonies'
 import Questions from '../components/Questions'
 import Location from '../components/Location'
 import Footer from '../components/Footer'
-import Navbar from '../utils/Navbar'
 
 function Home() {
   

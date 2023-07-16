@@ -4,6 +4,7 @@ import Facebook from '../assets/facebookBlack.png'
 import Instagram from '../assets/instagramBlack.png'
 import Twitter from '../assets/twitterBlack.png'
 import LinkedIn from '../assets/linkedinBlack.png'
+import { Fade } from 'react-reveal'
 
 const media = [
     Facebook,
@@ -22,9 +23,11 @@ function AboutMedia() {
         <div className='media'>
             {
                media.map((each)=>(
+                <Fade top duration={1000} distance="40px">
                 <div className="media_main">
                     <img src={each} alt= 'media' />
                 </div>
+                </Fade>
                )) 
             }
         </div>

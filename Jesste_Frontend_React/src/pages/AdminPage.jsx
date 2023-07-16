@@ -6,7 +6,8 @@ import { BarLoader } from 'react-spinners';
 import Fade from 'react-reveal';
 import Logo from '../assets/Ellipse.svg'
 import Background from '../assets/Background.png'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function AdminLogin() {
 
@@ -18,6 +19,44 @@ function AdminLogin() {
         }, 3000)
     }, [])
 
+
+  const [password, setPassword] = useState('')
+
+  const navigate = useNavigate();
+
+    const handleSecret = async(event)=>{
+      event.preventDefault()
+      let data = {
+        password: password
+      };
+      let result = await fetch('http://localhost:6570/jesste/api/keys/login',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      let value = await result.json(); 
+
+    if(password){
+        if(value.success){
+          localStorage.setItem('token', value.token)
+          toast.success('Login successful')
+          navigate('/adminlogin')
+          setPassword('');
+
+        }
+        else{
+          toast.error("Invalid password")
+          setPassword('');
+        }
+      }
+      else{
+        toast.error("Password must be provided")
+        setPassword('');
+        return false;
+      }
+    }
     
 
   return (
@@ -50,13 +89,13 @@ function AdminLogin() {
                 <div className='secret_page'>
                     <img src={Logo} alt='background'/>
                     <div className='secret'>
-                        <div className='secret_key'>
+                        <form className='secret_key' onSubmit={handleSecret}>
                             <h1>Welcome to the Jesste Administrator Page</h1>
                             <p>Please provide the secret code, to progress to the login or registration page</p>
-                            <input type='password' placeholder='Enter Secret Code'/>
+                            <input type='password' name='Password' id='password' placeholder='Enter password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
                             <br />
-                            <Link to='/adminlogin'><button>Proceed</button></Link>
-                        </div>
+                            <button>Proceed</button>
+                        </form>
                     </div>   
                 </div>
             </div>
@@ -123,6 +162,7 @@ const Container = styled.div`
     border-radius: 10px;
     border: 3px solid rgba(154, 154, 154, 0.904);
     text-align: center;
+    outline: none;
 }
 .secret_key button{
     background-color: gray;
@@ -132,6 +172,20 @@ const Container = styled.div`
     font-size: 20px;
     font-weight: 500;
     padding: 2% 9%;
+    cursor: pointer;
+}
+.secret_key button:hover{
+  scale: 1.1;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 760px){
+  .loader{
+    top: 30%;
+    left: 25%;
+  }
+  .imageloader{
+    width: 200px;
+  }
 }
 `
 

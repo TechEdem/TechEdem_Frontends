@@ -13,7 +13,6 @@ function Registration() {
   const [click, setClick] = useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
 
   const navigate = useNavigate();
 
@@ -44,14 +43,19 @@ function Registration() {
           localStorage.setItem('token', value.token)
           toast.success('Login successful')
           navigate('/registered')
+          setEmail('');
+          setPassword('');
         }
         else{
           toast.error("Invalid email or password")
+          setEmail('');
+          setPassword('');
         }
       }
       else{
-        setError(true);
         toast.error("Email or password must be provided")
+        setEmail('');
+        setPassword('');
         return false;
       }
     }
@@ -77,6 +81,7 @@ function Registration() {
         <div className='button'>
             <button>Sign In</button>
         </div>
+        </form>  
 
         <div className='sign'>
           <div className='main_sign'>
@@ -87,35 +92,41 @@ function Registration() {
               
               <div className='signup_details'>
 
-                  <div className='login_details'>
+                  <div className='sign_details'>
                   <Typed strings={["Register"]} typeSpeed = {80} backSpeed={80} loop  className='typed_sign'/>
                   </div> 
 
                       <UserSignup />
                       
                   <div className='sign'>
+
                     <div className='main_signup_sign'>
                       <p>Already in Jesste construction? </p>
-                      <div className='link' onClick={handleLeaveClick}>Sign In</div>
-                      </div>
-                    <a href='https://stackoverflow.com/' className='sign_help'>Need help?</a>
-                  </div>
+                      <span className='link' onClick={handleLeaveClick}>Sign In</span>
+                    </div>
 
+                    <div className='extra'>
+                      <a href='/admin' className='help'>An Admin?</a>
+                    </div>
+
+                  </div>
               </div>
             )
 
             }
           </div>
-          <a href='https://stackoverflow.com/' className='help'>Need help?</a>
+          <div className='extra'>
+            <p>Are you an admin?</p>
+            <a href='/admin' className='help'>Click here</a>
+          </div>
+
+          <div className="return">
+            <a href='/'>Back</a>
+          </div>
         </div>
 
-        <div className='admin_link'>
-          <Link to='/admin'className='admin_main_link'>Click this link to login, if you are an admin</Link>
-        </div>
-        <div className='admin_link'>
-          <a href='/'className='admin_main_link'>Go Home</a>
-        </div>
-        </form>  
+        
+        
       </Fade>
     </Container>
   )
@@ -125,18 +136,19 @@ const Container = styled.div`
 position: relative;
 
 .login_details{
-  padding: 5% 30%;
+  padding: 10% 30% 4% 30%;
   width: 100%;
 }
 .typed{
     padding: 5% ;
-    font-size: 50px;
+    font-size: 70px;
     font-weight: bold;
     background: linear-gradient(97.24deg, #f4ca98 50.37%, rgba(243, 194, 95, 0.233) 113.02%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent; 
+    font-family: 'Rubik';
 }
 .info{
   padding: 2% 9%;
@@ -145,6 +157,7 @@ label{
   padding: 2% 0%;
   font-family: "Rubik";
   font-size: 14px;
+  color: grey;
 }
 input{
   width: 470px;
@@ -172,20 +185,21 @@ button:hover{
   transition: all 0.3s ease-in-out;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.3);
 }
+
 .sign{
   padding: 0% 9%;
-  display: flex;
   justify-content: space-between;
 }
 .main_sign{
   display: flex;
-  justify-content: space-between;
-  width: 48%;
+  justify-content: center;
   font-family: "Rubik";
-  font-size: 13px;
+  font-size: 16px;
+  color: grey;
 }
 .link{
   color: #f4ca98 ;
+  padding-left: 2%;
 }
 .link:hover{
   cursor: pointer;
@@ -202,11 +216,6 @@ a:hover{
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
-.admin_link{
-  padding: 5% 9% 2% 9%;
-  text-align: center;
-  color: #f4ca99;
-}
 .admin_link: hover{
   cursor: pointer;
   transform: scale(1.1);
@@ -220,6 +229,10 @@ a:hover{
   cursor: pointer;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
+}
+.sign_details{
+  padding: 6% 25% 3% 25%;
+  width: 100%;
 }
 .signup_details{
   position: absolute;
@@ -238,13 +251,28 @@ a:hover{
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent; 
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
 }
 .main_signup_sign{
   display: flex;
-  justify-content: space-between;
-  width: 50%;
+  justify-content: center;
+}
+.extra{
+  padding-top: 7%;
+  display: flex;
+  justify-content: center;
+  font-family: "Rubik";
+  font-size: 15px;
+  color: grey;
+}
+.extra a{
+  padding-left: 2%;
+}
+.return{
+  text-align: center;
+  padding-top: 10%;
+  font-family: "Rubik";
 }
 @media (max-width: 760px){
   padding-top: 20%;
@@ -275,9 +303,6 @@ a:hover{
     width: 100%;
     justify-content: space-around;
   }
-  .help{
-    display: none;
-  }
   .typed_sign{
     padding: 5% 18%;
     font-size: 60px;
@@ -289,12 +314,14 @@ a:hover{
     font-family: "Rubik";
     font-size: 13px;
   }
-  .sign_help{
-    display: none;
+  .sign_details{
+    padding: 6% 0% 3% 0%;
+    width: 100%;
   }
   .signup_details{
-    padding: 30% 0%;
+    padding: 25% 0%;
   }
 }
+.return
 `
 export default Registration

@@ -12,7 +12,7 @@ import styled from 'styled-components'
   },
   {
     title: 'Categories',
-    link: '/',
+    link: '/category',
   },
   {
     title: 'Contact',

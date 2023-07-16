@@ -27,28 +27,28 @@ function Header(props) {
 const Container = styled.div`
 .introduction {
     width: 100%;
-    height: 80vh; 
+    height: 90vh; 
     display: flex;
   }
   video {
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     object-fit: cover;
   }
   .description{
     position: absolute;
     width: 100%;
-    height: 80%;
+    height: 90%;
     background-color:  rgba(0, 0, 0, 0.44);
   }
   .description-text{
     justify-content: center;
     color: white;
-    padding: 4% 15%;
+    padding: 10% 15%;
   }
   .title{
-    padding-left: 30%;
-    font-size: 70px;
+    padding-left: 22%;
+    font-size: 100px;
     font-family: 'Poppins';
     font-weight: 700;
   }
@@ -58,6 +58,14 @@ const Container = styled.div`
     line-height: 30px;
   }
   @media (max-width: 760px) {
+    .introduction {
+      height: 80vh; 
+    video {
+      height: 80vh;
+    }
+    .description{
+      height: 80%;
+    }
     .description-text{
         justify-content: center;
         color: white;

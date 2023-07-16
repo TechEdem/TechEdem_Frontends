@@ -5,44 +5,42 @@ import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 function UserSignup() {
-    const [fullname, setFullname] = useState("");
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
 
-    const navigate = useNavigate();
+  const [fullname, setFullname] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-    
+  const navigate = useNavigate();
+
+
+    const handleRegister = async (event) => {
+        event.preventDefault();    
         let data = {
           fullname: fullname,
           email: email,
           password: password,
-        };
-        let result = await fetch('http://localhost:6570/jesste/api/users/register',{
+        };  
+        let result = await fetch('http://localhost:6570/jesste/api/users/register', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
         });
-        let value = await result.json();
-        console.warn(value);
-        if(fullname && email && password)
-        {
-          if(password.length < 8){
-            toast.error("Password must be at least 8 characters long");
-          }
-          else if(value.success){
-            toast.success('Signup successful!');
-            navigate('/login');
+        let value  = await result.json();
+        console.warn(data);
+        if(fullname || email || password){
+          if(value.success){
+            localStorage.setItem('token', value.token)
+            toast.success('Login successful')
+            navigate('/dashboard')
           }
           else{
-            toast.error(value.message);
-            setError("Signup failed");
+            toast.error("Invalid email, password or secretcode");
+            setFullname('');
+            setEmail('');
+            setPassword('');
           }
-          
         }
         else{
           toast.error('Please fill all fields');
@@ -53,7 +51,7 @@ function UserSignup() {
   return (
     <Container>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleRegister}>
         <div className='info'>
             <label for='Fullname'>Fullname:</label>
             <br />
@@ -62,15 +60,15 @@ function UserSignup() {
         <div className='info'>
             <label for='Username'>Email:</label>
             <br />
-            <input type='email' name='password' id='password' placeholder='Enter password' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+            <input type='email' name='email' id='password' placeholder='Enter email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
         </div>
         <div className='info'>
             <label for='Username'>Password:</label>
             <br />
-            <input type='password' name='password' id='password' placeholder='Enter password'value={password} onChange={(e)=>setPassword(e.target.value)}/>
+            <input type='password' name='password' id='password' placeholder='Enter password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
         </div>
         <div className='button'>
-            <button>Sign Up</button>
+            <button type='submit'>Sign Up</button>
         </div>
         </form>
        
@@ -98,7 +96,7 @@ const Container = styled.div`
   button{
     width: 500px;
     height: 60px;
-    font-size: 25px;
+    font-size: 15px;
     font-weight: 500;
     border-radius: 10px;
     border: none;
