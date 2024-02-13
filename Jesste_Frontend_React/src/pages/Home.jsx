@@ -39,8 +39,7 @@ function Home() {
 }
 
 const Container = styled.div`
-width: 100%
-  
+width: 100%;
 `
 
 export default Home

@@ -37,8 +37,8 @@ const Container = styled.div`
   .description{
     position: absolute;
     width: 100%;
-    height: 100%;
-    background-color:  rgba(0, 0, 0, 0.64);
+    height: 100vh;
+    background-color:  rgba(0, 0, 0, 0.74);
   }
   @media (max-width: 900px){
     .introduction{

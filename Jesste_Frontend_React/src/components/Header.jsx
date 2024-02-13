@@ -38,8 +38,8 @@ const Container = styled.div`
   .description{
     position: absolute;
     width: 100%;
-    height: 90%;
-    background-color:  rgba(0, 0, 0, 0.44);
+    height: 90vh;
+    background-color:  rgba(0, 0, 0, 0.55);
   }
   .description-text{
     justify-content: center;

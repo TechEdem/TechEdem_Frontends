@@ -6,8 +6,6 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import AdminPage from './pages/AdminPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import RegisteredPage from './pages/RegisteredPage';
-import Login from './pages/Login';
 import PrivateComponent from "./components/PrivateComponent";
 import AboutUs from './screens/AboutUs';
 import Contact from './screens/Contact';
@@ -23,8 +21,6 @@ root.render(
           <Route element={<PrivateComponent />} />
           <Route path='/' element = {<App />} />
           <Route path = '/admin' element = {<AdminPage />} />
-          <Route path = '/login' element = {<Login />} />
-          <Route path='/registered' element = {<RegisteredPage />} />
           <Route path='/about' element = {<AboutUs />} />
           <Route path='/contact' element = {<Contact />} />
           <Route path='/adminlogin' element = {<AdminLogin />} />

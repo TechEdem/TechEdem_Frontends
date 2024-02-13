@@ -29,7 +29,7 @@ function IntroProfile() {
             <p>(+233)54-361-9041</p>
           </div>
           <div className="button-container">
-            <button>Read More</button>
+            <a href='/about'><button>Read More</button></a>
           </div>
         </div>
 

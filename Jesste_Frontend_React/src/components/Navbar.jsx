@@ -4,7 +4,6 @@ import Logo from '../assets/Ellipse.svg';
 import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion';
 import Cancel from '../assets/cancel.png';
-import Login from '../pages/Login';
 import Fade from 'react-reveal'
 import Menu from '../assets/Menu.png'
 import Home from '../assets/Home.png'
@@ -35,9 +34,9 @@ const NavIcons = [
     title : 'Contact',
   },
   {
-    link : '/login',
+    link : '/admin',
     image : Join,
-    title : 'Join',
+    title : 'Admin',
   }
 ]
 
@@ -52,14 +51,7 @@ function Navbar() {
     setIsOpen(false);
   };
 
-  const [click, setClick] = useState(false);
 
-  const handleClick = () => {
-    return setClick(true);
-  };
-  const handleLeaveClick = () => {
-    setClick(false);
-  };
 
   const[join, setJoin] = useState(false);
 
@@ -85,7 +77,7 @@ function Navbar() {
 
         <nav>
             <ul>
-                <li><Link to= '/' className='navigation'>Home</Link></li>
+                <li><Link  to= '/' className='navigation'>Home</Link></li>
                 <li><Link to= '/about' className='navigation'>About</Link></li>
                 <li onMouseLeave={handleLeave}>
                     <li onMouseEnter={handleHover}><Link to= '/category' className='navigation'>Categories</Link></li>
@@ -106,23 +98,7 @@ function Navbar() {
         </nav>
 
         <div className='authentication'>
-
-          <div className='main_auth'>
-            <button className='join' onClick={handleClick}>Join</button>
-            {click && (
-                <div className='join_main'>
-                  <div className='join_menu'>
-                    <div className='menu_image'>
-                      <img src={Cancel} alt='cancel' onClick={handleLeaveClick}className='main_cancel'/>
-                    </div>
-                    <Login />
-                  </div>
-                  
-                </div>
-                
-              )}
-          </div>
-
+            <a href='/admin'><button className='join'>Admin</button></a>
         </div>
 
         
@@ -246,15 +222,16 @@ const Container = styled.div`
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
   }
-  .join_menu{
+  .join_main{
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 3;
+    overflow: hidden;
     background: rgba(82, 82, 82, 0.95);
   }
   .menu_image{
@@ -265,6 +242,7 @@ const Container = styled.div`
     cursor: pointer;
   }
   .menu_image img{
+    position: fixed;
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -297,7 +275,6 @@ const Container = styled.div`
     position: fixed;
     display: block;
     width: 100%;
-    height: 100%;
     z-index: 3;
     background: rgba(82, 82, 82, 0.98);
   }
